@@ -1,8 +1,8 @@
 use 5.026;
 use warnings;
 
-package Dist::Zilla::PluginBundle::Author::AJNN::PruneAliases;
-# ABSTRACT: Prune macOS aliases
+package Dist::Zilla::Plugin::PruneAliases;
+# ABSTRACT: Prune macOS aliases from your dist
 
 
 use Dist::Zilla;
@@ -41,16 +41,19 @@ __PACKAGE__->meta->make_immutable;
 
 __END__
 
+=head1 SYNOPSIS
+
+ [PruneAliases]
+
 =head1 DESCRIPTION
 
-This plugin prunes all macOS alias files.
+This tiny plugin prunes all macOS data fork alias files.
+Works even on non-Mac operating systems.
 
 =head1 SEE ALSO
 
-L<Dist::Zilla::PluginBundle::Author::AJNN>
-
 L<Dist::Zilla::Plugin::PruneCruft>
 
-L<https://en.wikipedia.org/wiki/Alias_(Mac_OS)>
+L<Mac::Alias>
 
 =cut
