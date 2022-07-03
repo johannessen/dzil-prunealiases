@@ -25,14 +25,10 @@ sub _is_alias {
 	
 	# Try to read macOS alias magic number
 	open my $fh, '<:raw', $file->name or return;
-	my $data;
-	my $success = read $fh, $data, 16;
+	read $fh, my $data, 16 or return;
 	close $fh;
-	$success or return;
-	return 1 if $data eq "book\0\0\0\0mark\0\0\0\0";
-	
-	return;
-};
+	return $data eq "book\0\0\0\0mark\0\0\0\0";
+}
 
 
 __PACKAGE__->meta->make_immutable;
